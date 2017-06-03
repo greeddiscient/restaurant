@@ -3,9 +3,13 @@
 	"name" : "codeigniter/framework",
 	"license": "MIT",
 	"require": {
-		"php": ">=5.2.4"
+		"php": ">=5.2.4",
+		"silex/silex": "~1.1",
+		"monolog/monolog": "~1.7",
+	"ext-mysql": "*"
 	},
 	"require-dev": {
-		"mikey179/vfsStream": "1.1.*"
+			"heroku/heroku-buildpack-php": "*"
+
 	}
 }
