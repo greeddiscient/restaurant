@@ -10,3 +10,5 @@ $route['newOrder'] = 'Main/newOrder';
 $route['todaysOrder'] = 'Main/todaysOrder';
 $route['allOrders'] = 'Main/allOrder';
 $route['customers'] = 'Main/customers';
+$route['invoice'] = 'Main/invoice';
+$route['login'] = 'Main/login';
