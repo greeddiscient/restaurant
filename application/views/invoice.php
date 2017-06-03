@@ -20,13 +20,13 @@ foreach($orderDetails as $value){
 	<!-- begin #page-loader -->
 	<div id="page-loader" class="fade in"><span class="spinner"></span></div>
 	<!-- end #page-loader -->
-	
+
 	<!-- begin #page-container -->
 	<div id="page-container" class="page-container fade page-sidebar-fixed page-header-fixed">
 		<?php include"includes/topbar.php"; ?>
-		
+
 		<?php include"includes/sidebar.php"; ?>
-		
+
 		<!-- begin #content -->
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
@@ -38,7 +38,7 @@ foreach($orderDetails as $value){
 			<!-- begin page-header -->
 			<h1 class="page-header hidden-print">Invoice <small>For customers</small></h1>
 			<!-- end page-header -->
-			
+
 			<!-- begin invoice -->
 			<div class="invoice">
                 <div class="invoice-company">
@@ -105,17 +105,17 @@ foreach($orderDetails as $value){
                                     <td><?= $value->quantity ?></td>
                                     <td><?= $value->price * $value->quantity ?></td>
                                 </tr>
-                            	<?PHP		
+                            	<?PHP
                             		$i++;
                             		}
                             	?>
-                                
+
                             </tbody>
                         </table>
                     </div>
                     <div class="invoice-price">
                         <div class="invoice-price-left">
-                            
+
                         </div>
                         <div class="invoice-price-right">
                             <small>TOTAL</small> <?= $totalAmount ?>
@@ -132,22 +132,22 @@ foreach($orderDetails as $value){
                         THANK YOU FOR YOUR BUSINESS
                     </p>
                     <p class="text-center">
-                        <span class="m-r-10"><i class="fa fa-globe"></i> www.primowebsoft.com</span>
-                        <span class="m-r-10"><i class="fa fa-phone"></i> T: +91-8656823023</span>
-                        <span class="m-r-10"><i class="fa fa-envelope"></i> aamir.0019@gmail.com</span>
+                        <span class="m-r-10"><i class="fa fa-globe"></i> www.djuhari.com</span>
+                        <span class="m-r-10"><i class="fa fa-phone"></i> T: +65-83363572</span>
+                        <span class="m-r-10"><i class="fa fa-envelope"></i> shaundjuhari@gmail.com</span>
                     </p>
                 </div>
             </div>
 			<!-- end invoice -->
 		</div>
 		<!-- end #content -->
-		
+
        <!-- begin scroll to top btn -->
 		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
 		<!-- end scroll to top btn -->
 	</div>
 	<!-- end page container -->
-	
+
 	<?php include"includes/footer.php"; ?>
 	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
 	<script src="<?php echo base_url(); ?>assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
@@ -156,7 +156,7 @@ foreach($orderDetails as $value){
 	<script src="<?php echo base_url(); ?>assets/js/table-manage-default.demo.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/apps.min.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
-	
+
 	<script>
 		$(document).ready(function() {
 			App.init();
