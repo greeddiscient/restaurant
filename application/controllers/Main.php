@@ -5,10 +5,10 @@ class Main extends CI_Controller {
 
 	function __construct()
 	{
-		date_default_timezone_set('Asia/Bangkok');
 		parent:: __construct();
 		$this->load->model('Main_modal','',TRUE);
 		$this->load->library('form_validation');
+		date_default_timezone_set('Asia/Bangkok');
 	}
 
 	//New
@@ -41,6 +41,48 @@ class Main extends CI_Controller {
 	}
 
 	//new
+	function customers()
+	{
+		if($this->session->userdata('log_in'))
+		{
+			$data['customers'] = $this->Main_modal->customers();
+			$this->load->view('customers',$data);
+		}
+		else
+		{
+			redirect('Main/login');
+		}
+	}
+
+	//new
+	function updatecustomer()
+	{
+		if($this->session->userdata('log_in'))
+		{
+			$data['updatecustomer'] = $this->Main_modal->updatecustomer();
+			$this->load->view('customers',$data);
+		}
+		else
+		{
+			redirect('Main/login');
+		}
+	}	
+
+	//new
+	function customerdelete()
+	{
+		if($this->session->userdata('log_in'))
+		{
+			$data['customerdelete'] = $this->Main_modal->customerdelete();
+			$this->load->view('customers',$data);
+		}
+		else
+		{
+			redirect('Main/login');
+		}
+	}	
+
+	//new
 	function invoice()
 	{
 		if($this->session->userdata('log_in'))
@@ -64,6 +106,13 @@ class Main extends CI_Controller {
 		$mobileNumber = $this->input->post('mobileNumber');
 
 		echo $data['result'] = $this->Main_modal->checkMobile($mobileNumber);
+	}
+
+	function checkMobileExists()
+	{
+		$mobileNumber = $this->input->post('mobileNumber');
+
+		echo $data['result'] = $this->Main_modal->checkMobileExists($mobileNumber);
 	}
 
 	//new
@@ -118,6 +167,13 @@ class Main extends CI_Controller {
 	}
 
 	//New
+	function allOrder()
+	{
+		$data['allOrder'] = $this->Main_modal->allOrder();
+		$this->load->view('allOrder', $data);
+	}
+
+	//New
 	function loginchk()
 	{
 		$this->form_validation->set_rules('username', 'User Name', 'trim|required');
@@ -145,9 +201,9 @@ class Main extends CI_Controller {
 					$this->session->set_userdata('log_in', $sess_array);
 				}
 
-				redirect('Main/index');
+				redirect('Main/index');	
 			}
-
+			
 		}
 	}
 
@@ -176,7 +232,7 @@ class Main extends CI_Controller {
 		$itemprice = $this->input->post('itemprice');
 		$array = array(
 					'itemName' =>$itemname ,
-					'itemPrice' =>$itemprice
+					'itemPrice' =>$itemprice 
 					);
 		$this->Main_modal->updatecategory($array, $id);
 		echo 'done';
@@ -191,7 +247,7 @@ class Main extends CI_Controller {
 	}
 
 	function logout()
-	{
+	{	
 	   session_destroy();
 	   redirect('Main');
 	}

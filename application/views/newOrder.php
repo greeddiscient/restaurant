@@ -8,13 +8,13 @@
 	<!-- begin #page-loader -->
 	<div id="page-loader" class="fade in"><span class="spinner"></span></div>
 	<!-- end #page-loader -->
-
+	
 	<!-- begin #page-container -->
 	<div id="page-container" class="page-container fade page-sidebar-fixed page-header-fixed">
 		<?php include"includes/topbar.php"; ?>
-
+		
 		<?php include"includes/sidebar.php"; ?>
-
+		
 		<!-- begin #content -->
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
@@ -27,7 +27,7 @@
 			<!-- begin page-header -->
 			<h1 class="page-header">Order <small>New</small></h1>
 			<!-- end page-header -->
-
+			
 			<div class="row">
 				<form class="form-horizontal" method="post" novalidate action="<?php echo base_url('index.php/Main/addOrder'); ?>">
 			    <div class="col-md-12">
@@ -37,7 +37,7 @@
 					{
 					?>
 					<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> Order Successfull!!</div>
-					<?php
+					<?php	
 					}
 					?>
 
@@ -47,7 +47,7 @@
                             <h4 class="panel-title">Customer Details</h4>
                         </div>
                         <div class="panel-body">
-
+                        
                         		<div class="form-group">
                                 	<div class="col-md-12">
                                 		<div class="col-md-6">
@@ -64,7 +64,7 @@
                                     </div>
 								</div>
                                 <div class="form-group" id="mob">
-
+                                	
                                     <label class="col-md-2 col-md-offset-2 control-label">Mobile Number</label>
                                     <div class="col-md-4">
                                         <input type="text" class="form-control" placeholder="Mobile Number" autocomplete="off" name="mobileNumber" id="mobileNumber" />
@@ -92,7 +92,7 @@
 							 					<tr>
 							 						<td colspan="6">No Result</td>
 							 					</tr>
-
+							 					
 							 				</tbody>
 							 			</table>
 							 		</div>
@@ -107,7 +107,7 @@
 	                                        <input type="text" class="form-control" id="fullName" placeholder="Full Name" autocomplete="off" name="fullName"/>
 	                                    </div>
 	                                </div>
-                                </div>
+                                </div>	
 								<div class="col-md-6">
 									<div class="form-group">
 	                                    <label class="col-md-4 control-label">Mobile Number</label>
@@ -123,7 +123,7 @@
 	                                        <input type="text" id="email" class="form-control" placeholder="Email" autocomplete="off" name="email"/>
 	                                    </div>
 	                                </div>
-                                </div>
+                                </div>	
 								<div class="col-md-6">
 									<div class="form-group">
 	                                    <label class="col-md-4 control-label">Address</label>
@@ -131,9 +131,9 @@
 	                                        <input type="text" class="form-control" id="address" placeholder="Address" autocomplete="off" name="address"/>
 	                                    </div>
 	                                </div>
-                                </div>
+                                </div>	
 								</div>
-
+                            
                         </div>
                     </div>
                 </div>
@@ -145,7 +145,7 @@
                         </div>
                         <div class="panel-body">
                         	    <div class="form-group">
-
+                                	
                                     <div class="col-md-4">
                                         <input type="text" id="autocomp" class="form-control" placeholder="Item Name" onblur="checkPrice();" autocomplete="off" />
                                     </div>
@@ -177,7 +177,7 @@
 							 					</tr>
 							 				</thead>
 							 				<tbody id="pr">
-
+							 					
 							 				</tbody>
 							 				<tfoot style="font-weight: bold;">
 							 					<tr>
@@ -224,13 +224,13 @@
 			</div>
 		</div>
 		<!-- end #content -->
-
+		
        <!-- begin scroll to top btn -->
 		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
 		<!-- end scroll to top btn -->
 	</div>
 	<!-- end page container -->
-
+	
 	<?php include"includes/footer.php"; ?>
 	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
 	<script src="<?php echo base_url(); ?>assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
@@ -243,7 +243,7 @@
 
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
+	
 	<script>
 		$(document).ready(function() {
 			App.init();
@@ -257,14 +257,14 @@
     	foreach ($products as $value) {
     		echo "'".$value->itemName."',";
     	}
-    ?>
+    ?>	
 	];
     $( "#autocomp" ).autocomplete({
       source: availableTags
     });
   });
 
-  function checkPrice()
+  function checkPrice()	
   {
   	var product = $( "#autocomp" ).val();
   	if(product != "")
@@ -295,7 +295,7 @@
 	        type: "post",
 	        data: {mobileNumber: mobileNumber},
 	        success: function (response) {
-	        	if(response == 'no')
+	        	if(response == 'no')	
 	        	{
 		        	alert("No Result");
 	        	}
@@ -303,11 +303,11 @@
 	        	{
 	        		$('#newCustomer').hide();
 		        	$('#returning').show();
-		        	$('#custResult').html(response);
+		        	$('#custResult').html(response);	
 	        	}
 	        }
     	});
-    	return false;
+    	return false;	
     }
 
     function checkRadio()
@@ -324,11 +324,11 @@
     		$('#mob').hide();
     		$('#newCustomer').show();
     	}
-    }
+    } 
 
     function addMe()
     {
-
+    	
     	var productname = $('#autocomp').val();
     	var priceProduct = $('#priceProduct').val();
     	var productQuantity = $('#productQuantity').val();
@@ -343,12 +343,12 @@
 	    	else
 	    	{
 			var amount = parseInt(priceProduct)*parseInt(productQuantity);
-
-			var result = '<tr><td>'+productname+'<input class="productname" type="hidden" name="productName[]" value="'+productname+'" /></td><td>'+productQuantity+'<input class="productQuantity" type="hidden" name="productQuantity[]" value="'+productQuantity+'" /></td><td>'+priceProduct+'<input class="priceProduct" type="hidden" name="priceProduct[]" value="'+priceProduct+'" /></<td><td>'+amount+'<input type="hidden" class="amount" name="amount[]" value="'+amount+'" /></<td><td><img width="20" onclick="$(this).closest(\'tr\').remove();myTotal();" src="/assets/img/delete.png"></td></tr>';
+			
+			var result = '<tr><td>'+productname+'<input class="productname" type="hidden" name="productName[]" value="'+productname+'" /></td><td>'+productQuantity+'<input class="productQuantity" type="hidden" name="productQuantity[]" value="'+productQuantity+'" /></td><td>'+priceProduct+'<input class="priceProduct" type="hidden" name="priceProduct[]" value="'+priceProduct+'" /></<td><td>'+amount+'<input type="hidden" class="amount" name="amount[]" value="'+amount+'" /></<td><td><img width="20" onclick="$(this).closest(\'tr\').remove();myTotal();" src="http://localhost/restaurant/assets/img/delete.png"></td></tr>';
 	    		$('#pr').append(result);
 
-				myTotal();
-
+				myTotal();	
+	    
 
 		    	$('#autocomp').val('');
 		    	$('#priceProduct').val('');
@@ -364,7 +364,7 @@
 
     function myTotal()
     {
-    	var total = 0;
+    	var total = 0;	
     	$('.amount').each(function(){
     		var get = $(this).val();
     		total = parseInt(total) + parseInt(get);
@@ -380,7 +380,7 @@
 		//pr
 		if(productQuantity != '' || priceProduct != '')
 		{
-	    	var result = parseInt(priceProduct)*parseInt(productQuantity);
+	    	var result = parseInt(priceProduct)*parseInt(productQuantity);	
 	    	$('#productAmount').val(result);
    	 	}
 	}
@@ -391,11 +391,11 @@
 		if(get != "")
 		{
 			$.ajax({
-		        url: "<?= base_url('index.php/Main/checkMobile'); ?>",
+		        url: "<?= base_url('index.php/Main/checkMobileExists'); ?>",
 		        type: "post",
 		        data: {mobileNumber: get},
 		        success: function (response) {
-		        	if(response == 'no')
+		        	if(response == 'no')	
 		        	{
 		        		$('#mobNumb').css('border-color', '#ccd0d4');
 		        		return true;
@@ -457,14 +457,24 @@
     			}
     			else
     			{
-    				if(checkMobileExists())
-    				{
-    					return true;
-    				}
-    				else
-    				{
-    					return false;
-    				}
+    				$.ajax({
+				        url: "<?= base_url('index.php/Main/checkMobileExists'); ?>",
+				        type: "post",
+				        data: {mobileNumber: mobNumb},
+				        success: function (response) {
+				        	if(response == 'yes')	
+				        	{
+				        		$('#mobNumb').css('border-color', 'red');
+					        	alert("Mobile number already exists!!");
+					        	return false;
+				        	}
+					        else
+					        {
+					        	$('#mobNumb').css('border-color', '#ccd0d4');
+				        		return true;
+					        }
+				        }
+			    	});
     			}
 			}
 		}

@@ -43,10 +43,49 @@ class Main_modal extends CI_Model
 	}
 
 	//New
+	function allOrder()
+	{
+		$date = date('Y-m-d');
+		$this->db->select('orders.*, customerdetails.*');
+		$this->db->from('orders');
+		$this->db->join('customerdetails', 'orders.customerMobile = customerdetails.customerMobile');
+
+		$r = $this->db->get();
+		return $r->result();
+	}
+
+	//New
+	function customers()
+	{
+		$this->db->select('*');
+		$this->db->from('customerdetails');
+		
+		$r = $this->db->get();
+		return $r->result();
+	}
+
+	//New
 	function updatecategory($array,$id)
 	{
 		$this->db->where('itemId',$id);
 		$this->db->update('items',$array);
+
+		return true;
+	}
+
+	//new
+	function updatecustomer(){
+		$customername  = $this->input->post('customername');
+		$customeremail  = $this->input->post('customeremail');
+		$customeraddress  = $this->input->post('customeraddress');
+		$id  = $this->input->post('id');
+
+		$array = array("customerName" => $customername,
+					"customerEmail" => $customeremail,
+					"customerAddress" => $customeraddress
+			);
+		$this->db->where('customerId', $id);
+		$this->db->update('customerdetails', $array);
 
 		return true;
 	}
@@ -59,6 +98,18 @@ class Main_modal extends CI_Model
 
 		return true;
 	}
+
+	//New
+	function customerdelete()
+	{
+		$id = $this->input->post('customerid');
+
+		$this->db->where('customerId',$id);
+		$this->db->delete('customerdetails');
+
+		return true;
+	}
+
 
 	
 	function blogDetails($blogId)
@@ -119,6 +170,25 @@ class Main_modal extends CI_Model
  						</td>
  					</tr>';
 			}	
+		}
+	}
+
+	function checkMobileExists($mobileNumber)
+	{
+		$this->db->select('*');
+		$this->db->from('customerdetails');
+		$this->db->where('customerMobile', $mobileNumber);
+		$query = $this->db->get();
+		$result = $query->result();
+		$count = $query->num_rows(); 
+
+		if($count == 0)
+		{
+			echo "no";
+		}
+		else
+		{
+			echo "yes";
 		}
 	}
 
