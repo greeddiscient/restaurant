@@ -8,5 +8,5 @@ $route['translate_uri_dashes'] = FALSE;
 $route['menus'] = 'Main/menus';
 $route['newOrder'] = 'Main/newOrder';
 $route['todaysOrder'] = 'Main/todaysOrder';
-$route['alOrders'] = 'Main/allOrder';
+$route['allOrders'] = 'Main/allOrder';
 $route['customers'] = 'Main/customers';
