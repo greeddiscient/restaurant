@@ -19,10 +19,10 @@
 				<ul class="nav">
 					<li class="nav-header">Navigation</li>
 					<li><a href="<?php echo base_url(); ?>"><i class="fa fa-laptop"></i> <span>Dashboard</span></a></li>
-					<li><a href="<?php echo base_url('newOrder'); ?>"><i class="fa fa-cubes"></i> <span>New Order</span></a></li>	
+					<li><a href="<?php echo base_url('newOrder'); ?>"><i class="fa fa-cubes"></i> <span>New Order</span></a></li>
 					<li><a href="<?php echo base_url('menus'); ?>"><i class="fa fa-cubes"></i> <span>Menu</span></a></li>
 					<li><a href="<?php echo base_url('todaysOrder'); ?>"><i class="fa fa-user"></i> <span>Todays Orders</span></a></li>
-					<li><a href="<?php echo base_url('alOrders'); ?>"><i class="fa fa-user"></i> <span>All Orders</span></a></li>
+					<li><a href="<?php echo base_url('allOrders'); ?>"><i class="fa fa-user"></i> <span>All Orders</span></a></li>
 					<li><a href="<?php echo base_url('customers'); ?>"><i class="fa fa-user"></i> <span>Customers</span></a></li>
 
 					<!-- begin sidebar minify button -->
