@@ -34,6 +34,7 @@
                             <h4 class="panel-title">All Orders</h4>
                         </div>
                         <div class="panel-body">
+                        <form>
                             <table id="data-table" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
@@ -43,6 +44,8 @@
                                         <th>Amount</th>
                                         <th>Payment Type</th>
                                         <th>Order Date</th>
+                                        <th>Delivery Date</th>
+                                        <th>Status</th>
                                          <th>&nbsp;</th>
                                     </tr>
                                 </thead>
@@ -54,7 +57,7 @@
                                 	{
 	                                	foreach ($allOrder as $o)
 	                                	{
-	                                	?>
+	                                	?>	
                             <tr class="">
                                 <td><?php echo $i; ?></td>
                                 <td><?php echo ucwords($o->customerName); ?></td>
@@ -62,6 +65,12 @@
                                 <td><?php echo ucwords($o->totalAmount); ?></td>
                                 <td><?php echo ucwords($o->paymentType); ?></td>
                                 <td><?php echo date('d-m-Y', strtotime($o->orderDate)); ?></td>
+                                <td><?php echo date('d-m-Y', strtotime($o->deliveryDate)); ?></td>
+                                <td>
+                                	<select onchange="changeStatus(this.value, '<?= $o->orderId ?>');" >
+                                		<option <?PHP if($o->orderStatus == 'pending') echo 'selected'; ?> value="pending">Pending</option>
+                                		<option <?PHP if($o->orderStatus == 'delivered') echo 'selected'; ?> value="delivered">Delivered</option>
+                                	</select>
                                 <td>
                                 <a href="<?PHP echo base_url('index.php/Main/invoice/'.$o->orderId); ?>" class="btn btn-sm btn-primary">Details</a>
                                 </td>
@@ -81,6 +90,7 @@
 	                                ?>
                                 </tbody>
                             </table>
+                            </form>
                         </div>
                     </div>
                     <!-- end panel -->
@@ -111,6 +121,20 @@
 			App.init();
 			TableManageDefault.init();
 		});
+
+		function changeStatus(status, orderid){
+			$.ajax({
+		        url: "<?= base_url('index.php/Main/updateStatus'); ?>",
+		        type: "post",
+		        data: {orderId: orderid, status : status},
+		        success: function (response) {
+		        	if(response == 'yes')	
+		        	{
+		        		alert("Status changed!!");	
+		        	}
+			    }
+	    	});
+		}
 	</script>
 </body>
 </html>

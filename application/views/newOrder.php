@@ -203,7 +203,13 @@
                         </div>
                         <div class="panel-body">
                         	    <div class="form-group">
-                                	<div class="col-md-12 text-center" style="font-size: 24px;padding-bottom: 40px;padding-top: 20px;">
+                        	    	<div class="col-md-12 text-center" style="padding-top: 10px;">
+                                       <label class="col-md-6 control-label">Delivery Date</label>
+	                                    <div class="col-md-6">
+	                                        <input type="text" class="form-control" value="<?= date('m/d/Y'); ?>"placeholder="Delivery Date" id="deliveryDate" autocomplete="off" name="deliveryDate"/>
+	                                    </div>
+                                    </div>
+                                	<div class="col-md-12 text-center" style="font-size: 24px;padding-bottom: 20px;padding-top: 20px;">
                                        Total: <span id="totaltwo">0</span>
                                     </div>
                                     <div class="col-md-6">
@@ -245,6 +251,11 @@
   	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	
 	<script>
+		 $( function() {
+		    $( "#deliveryDate" ).datepicker({
+			        minDate: 0
+			    });
+		  } );
 		$(document).ready(function() {
 			App.init();
 			TableManageDefault.init();
@@ -344,7 +355,7 @@
 	    	{
 			var amount = parseInt(priceProduct)*parseInt(productQuantity);
 			
-			var result = '<tr><td>'+productname+'<input class="productname" type="hidden" name="productName[]" value="'+productname+'" /></td><td>'+productQuantity+'<input class="productQuantity" type="hidden" name="productQuantity[]" value="'+productQuantity+'" /></td><td>'+priceProduct+'<input class="priceProduct" type="hidden" name="priceProduct[]" value="'+priceProduct+'" /></<td><td>'+amount+'<input type="hidden" class="amount" name="amount[]" value="'+amount+'" /></<td><td><img width="20" onclick="$(this).closest(\'tr\').remove();myTotal();" src="http://localhost/restaurant/assets/img/delete.png"></td></tr>';
+			var result = '<tr><td>'+productname+'<input class="productname" type="hidden" name="productName[]" value="'+productname+'" /></td><td>'+productQuantity+'<input class="productQuantity" type="hidden" name="productQuantity[]" value="'+productQuantity+'" /></td><td>'+priceProduct+'<input class="priceProduct" type="hidden" name="priceProduct[]" value="'+priceProduct+'" /></<td><td>'+amount+'<input type="hidden" class="amount" name="amount[]" value="'+amount+'" /></<td><td><img width="20" onclick="$(this).closest(\'tr\').remove();myTotal();" src="/assets/img/delete.png"></td></tr>';
 	    		$('#pr').append(result);
 
 				myTotal();	
@@ -483,7 +494,10 @@
 	function setMobileNo(get)
 	{
 		$('#selectedGuest').val(get);
+		alert("you have selected the customer");
 	}
     </script>
+
+
 </body>
 </html>

@@ -166,6 +166,15 @@ class Main extends CI_Controller {
 		$this->load->view('todaysOrder', $data);
 	}
 
+	function updateStatus()
+	{
+		$updateStatus = $this->Main_modal->updateStatus();
+		if($updateStatus)
+		{
+			echo "yes";
+		}	
+	}
+
 	//New
 	function allOrder()
 	{

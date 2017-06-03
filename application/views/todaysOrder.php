@@ -42,8 +42,10 @@
                                         <th>Mobile No.</th>
                                         <th>Amount</th>
                                         <th>Payment Type</th>
-                                        <th>Address</th>
-                                         <th>&nbsp;</th>
+                                        <th>Order Date</th>
+                                        <th>Delivery Date</th>
+                                        <th>Status</th>
+                                        <th>&nbsp;</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -60,7 +62,14 @@
                                 <td><?php echo ucwords($o->customerMobile); ?></td>
                                 <td><?php echo ucwords($o->totalAmount); ?></td>
                                 <td><?php echo ucwords($o->paymentType); ?></td>
-                                <td><?php echo ucwords($o->customerAddress); ?></td>
+                                <td><?php echo date('d-m-Y', strtotime($o->orderDate)); ?></td>
+                                <td><?php echo date('d-m-Y', strtotime($o->deliveryDate)); ?></td>
+                                <td>
+                                	<select onchange="changeStatus(this.value, '<?= $o->orderId ?>');" >
+                                		<option <?PHP if($o->orderStatus == 'pending') echo 'selected'; ?> value="pending">Pending</option>
+                                		<option <?PHP if($o->orderStatus == 'delivered') echo 'selected'; ?> value="delivered">Delivered</option>
+                                	</select>
+                                <td>
                                 <td>
                                 <a href="<?PHP echo base_url('index.php/Main/invoice/'.$o->orderId); ?>" class="btn btn-sm btn-primary">Details</a>
                                 </td>
@@ -116,44 +125,17 @@
 
 </html>
 <script type="text/javascript">
-function update(get,id){
-		if(get == 'Edit'){
-			$('#editbtn'+id).val('Update');
-			$('#cname'+id).attr('disabled', false);
-			$('#ccode'+id).attr('disabled', false);
+	function changeStatus(status, orderid){
+			$.ajax({
+		        url: "<?= base_url('index.php/Main/updateStatus'); ?>",
+		        type: "post",
+		        data: {orderId: orderid, status : status},
+		        success: function (response) {
+		        	if(response == 'yes')	
+		        	{
+		        		alert("Status changed!!");	
+		        	}
+			    }
+	    	});
 		}
-		else{
-			var category = $('#cname'+id).val();
-			if(category.length == 0)
-			{
-				category = $('#cname'+id).css('border-color','red');
-				return false;
-			}
-			else
-			{
-				$.ajax({
-			         url:"<?php echo base_url() ?>index.php/Main/updatecategory/",
-			         type:'POST',
-			         data:{id:id,category:category}
-			      }).done(function(response){
-			      		window.location.href = "<?php echo base_url(); ?>"+"index.php/Main/category/updated";
-			      });
-			}
-		}	
-	}
-
-	function deleteme(id)
-	{
-
-		var r = confirm("Are you really want to delete this category??");
-		    if (r == true) {
-		       $.ajax({
-		         url:"<?php echo base_url() ?>index.php/Main/deleteCategory/",
-		         type:'POST',
-		         data:{categoryId:id}
-		      }).done(function(response){
-		      		window.location.href = "<?php echo base_url(); ?>"+"index.php/Main/category/deleted";
-		      });
-		    } 
-	}
 </script>

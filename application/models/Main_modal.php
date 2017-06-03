@@ -222,11 +222,26 @@ class Main_modal extends CI_Model
 		return $result;
 	}
 
+	function updateStatus()
+	{
+		$status = $this->input->post('status');
+		$orderid = $this->input->post('orderid');
+
+		$array = array("orderStatus" => $status);	
+		$this->db->update("orders", $array);
+
+		return true;
+	}
+
 	function addOrder()
 	{
 		$this->db->trans_begin();
 
 		$guestType = $this->input->post('guestType');
+
+		$deliveryDate = $this->input->post('deliveryDate');
+		$arr = explode('/', $deliveryDate);
+		$deliveryDate = $arr[2].'-'.$arr[0].'-'.$arr[1];
 
 		$paymentType = $this->input->post('paymentType');
 
@@ -273,7 +288,8 @@ class Main_modal extends CI_Model
 							"totalAmount" => $a,
 							"paymentType" => $paymentType,
 							"orderStatus" => "pending",
-							"orderDate" => $now
+							"orderDate" => $now,
+							"deliveryDate" => $deliveryDate
 							);
 		$this->db->insert('orders', $orders);
 

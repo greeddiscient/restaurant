@@ -6,6 +6,7 @@ foreach($orderDetails as $value){
 	$customerMobile = $value->customerMobile;
 
 	$orderDate = $value->orderDate;
+	$deliveryDate = $value->deliveryDate;
 	$orderId = $value->orderId;
 	$totalAmount = $value->totalAmount;
 }
@@ -42,7 +43,6 @@ foreach($orderDetails as $value){
 			<div class="invoice">
                 <div class="invoice-company">
                     <span class="pull-right hidden-print">
-                    <a href="javascript:;" class="btn btn-sm btn-success m-b-10"><i class="fa fa-download m-r-5"></i> Export as PDF</a>
                     <a href="javascript:;" onclick="window.print()" class="btn btn-sm btn-success m-b-10"><i class="fa fa-print m-r-5"></i> Print</a>
                     </span>
                     Restaurant Name
@@ -68,11 +68,14 @@ foreach($orderDetails as $value){
                     </div>
                     <div class="invoice-date">
                         <small>Invoice</small>
-                        <div class="date m-t-5"><?PHP
+                        <div class="date m-t-5">Order Date: <?PHP
                          $timestamp = strtotime($orderDate);
 						echo $new_date_format = date('d-m-Y' , $timestamp);
-
-                         ?></div>
+						?></div>
+						<div class="date m-t-5">Delivery Date: <?PHP
+                         $timestamp = strtotime($deliveryDate);
+						echo $new_date_format = date('d-m-Y' , $timestamp);
+						?></div>
                         <div class="invoice-detail">
                             #0000<?= $orderId ?>RES<br />
                         </div>
