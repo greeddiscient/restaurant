@@ -21,7 +21,10 @@
 					<li><a href="<?php echo base_url(); ?>"><i class="fa fa-laptop"></i> <span>Dashboard</span></a></li>
 					<li><a href="<?php echo base_url('index.php/Main/newOrder'); ?>"><i class="fa fa-cubes"></i> <span>New Order</span></a></li>	
 					<li><a href="<?php echo base_url('index.php/Main/menus'); ?>"><i class="fa fa-cubes"></i> <span>Menu</span></a></li>
-					<li><a href="<?php echo base_url('index.php/Main/todaysOrder'); ?>"><i class="fa fa-user"></i> <span>Todays Order</span></a></li>
+					<li><a href="<?php echo base_url('index.php/Main/todaysOrder'); ?>"><i class="fa fa-user"></i> <span>Todays Orders</span></a></li>
+					<li><a href="<?php echo base_url('index.php/Main/allOrder'); ?>"><i class="fa fa-user"></i> <span>All Orders</span></a></li>
+					<li><a href="<?php echo base_url('index.php/Main/customers'); ?>"><i class="fa fa-user"></i> <span>Customers</span></a></li>
+
 					<!-- begin sidebar minify button -->
 					<li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
 			        <!-- end sidebar minify button -->
