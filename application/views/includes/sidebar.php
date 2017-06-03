@@ -3,17 +3,6 @@
 			<!-- begin sidebar scrollbar -->
 			<div data-scrollbar="true" data-height="100%">
 				<!-- begin sidebar user -->
-				<ul class="nav">
-					<li class="nav-profile">
-						<div class="image">
-							<a href="javascript:;"><img src="<?php echo base_url(); ?>assets/img/user-13.jpg" alt="" /></a>
-						</div>
-						<div class="info">
-							Admin
-							<small>Manage Admin</small>
-						</div>
-					</li>
-				</ul>
 				<!-- end sidebar user -->
 				<!-- begin sidebar nav -->
 				<ul class="nav">
