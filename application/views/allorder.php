@@ -1,4 +1,5 @@
 <?php include"includes/header.php"; ?>
+<!--  -->
 	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
 	<link href="<?php echo base_url(); ?>assets/plugins/DataTables/media/css/dataTables.bootstrap.min.css" rel="stylesheet" />
 	<link href="<?php echo base_url(); ?>assets/plugins/DataTables/extensions/Responsive/css/responsive.bootstrap.min.css" rel="stylesheet" />
@@ -8,13 +9,13 @@
 	<!-- begin #page-loader -->
 	<div id="page-loader" class="fade in"><span class="spinner"></span></div>
 	<!-- end #page-loader -->
-	
+
 	<!-- begin #page-container -->
 	<div id="page-container" class="page-container fade page-sidebar-fixed page-header-fixed">
 		<?php include"includes/topbar.php"; ?>
-		
+
 		<?php include"includes/sidebar.php"; ?>
-		
+
 		<!-- begin #content -->
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
@@ -90,13 +91,13 @@
             <!-- end row -->
 		</div>
 		<!-- end #content -->
-		
+
        <!-- begin scroll to top btn -->
 		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
 		<!-- end scroll to top btn -->
 	</div>
 	<!-- end page container -->
-	
+
 	<?php include"includes/footer.php"; ?>
 	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
 	<script src="<?php echo base_url(); ?>assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
@@ -105,7 +106,7 @@
 	<script src="<?php echo base_url(); ?>assets/js/table-manage-default.demo.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/apps.min.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
-	
+
 	<script>
 		$(document).ready(function() {
 			App.init();
